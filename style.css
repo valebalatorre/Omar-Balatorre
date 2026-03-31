@@ -144,15 +144,124 @@ section { padding: 60px 0; }
     gap: 18px; 
 }
 .service-card { 
-    background: #fff; 
-    border: 2px solid var(--gold); 
+    background: rgba(241, 235, 226, 1);
+    border: 2px rgba(241, 235, 226, 0.9) solid; 
     border-radius: 10px; 
     padding: 18px; 
 }
-.service-card h2 { 
-    font-family: var(--font-heading); 
-    margin-bottom: 10px; 
-    color: var(--dark); 
+
+.service-card:hover {
+    background: linear-gradient(25deg, rgba(211, 204, 193, 0.9) 20%, rgba(241, 235, 226, 1) 100%);
+    border-color: var(--subtle);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 30px rgba(243, 243, 242, 0.3);
+    transition: all 0.3s ease;
+    border: transparent;
+}
+
+.servicios h2 { 
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.service-card h3 { 
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    margin: center;
+    color: rgb(90, 80, 66);
+    font-weight: 700;
+    text-align: center;
+    text-shadow: #c9c5bf 1px 1px 5px;
+    letter-spacing: 1px;
+}
+
+.service-card:hover h3 {
+    color: rgb(90, 80, 66);
+    text-shadow: #e0deda 1px 1px 5px;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+}
+
+.service-card p {
+    color: var(--dark);
+    opacity: 0.9; /* Makes long text a bit softer to read */
+}
+
+
+
+                    /*===============   E - B O O K S ===============*/
+
+.ebook-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    padding: 80px 0;
+}
+
+.ebook-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.ebook-text h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.ebook-text h3 {
+    font-size: 1.5rem;
+    color: var(--primary-bg);
+    margin-bottom: 20px;
+}
+
+.ebook-text p {
+    margin-bottom: 30px;
+    color: var(--primary-bg);
+    opacity: 0.9; /* Makes long text a bit softer to read */
+}
+
+.ebook-image {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centers the image inside its half */
+}
+
+.ebook-image img {
+    max-width: 350px; /* E-book covers usually look better slightly smaller than hero images */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+/* Subtle interaction: image pops slightly when hovering over the section */
+.ebook-container:hover .ebook-image img {
+    transform: scale(1.03);
+}
+
+/* Responsive: Stack text on top of image for mobile */
+@media (max-width: 768px) {
+    .ebook-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .ebook-text {
+        order: 1; /* Keeps text on top */
+    }
+    
+    .ebook-image {
+        order: 2; /* Image goes below */
+    }
 }
 
 
