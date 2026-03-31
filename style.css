@@ -136,6 +136,44 @@ section { padding: 60px 0; }
     box-shadow: 0 10px 20px rgba(45, 51, 35, 0.7);
 }
 
+/* MOBILE RESPONSIVENESS (PHONES)*/
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Stacks the image on top of the text */
+        text-align: center;
+        padding: 40px 20px;
+        min-height: auto; /* Lets the section grow based on content */
+        gap: 30px;
+    }
+
+    .image-hero {
+        max-width: 100%;
+        order: 1; /* Ensures the image stays on top (or 2 if you want text first) */
+    }
+
+    .image-hero img {
+        max-width: 280px; /* Reduces size so it doesn't take the whole screen */
+        margin: 0 auto;
+    }
+
+    .text-hero {
+        max-width: 100%;
+        align-items: center; /* Centers the button and text inside the flex container */
+        text-align: center;
+        order: 2;
+    }
+
+    .text-hero h1 {
+        font-size: 2.5rem; /* Scales down the title for smaller screens */
+    }
+
+    .cta {
+        width: 100%; /* Optional: makes the button full-width on mobile */
+        max-width: 250px;
+        margin-top: 20px;
+    }
+}
+
                     /*=============== S E R V I C E S ===============*/
 
 .services-grid { 
@@ -191,6 +229,20 @@ section { padding: 60px 0; }
     opacity: 0.9; /* Makes long text a bit softer to read */
 }
 
+/* MOBILE RESPONSIVENESS (PHONES) */
+@media (max-width: 768px) {
+    /* ... your existing hero mobile styles ... */
+
+    .servicios h2 { 
+        text-align: center;
+        font-size: 2.5rem; /* Optional: slightly smaller for mobile */
+        margin-bottom: 30px; /* Adds a bit more space before the cards */
+    }
+
+    .service-card {
+        text-align: center; /* Centers the paragraph text inside the cards too */
+    }
+}
 
 
                     /*===============   E - B O O K S ===============*/
