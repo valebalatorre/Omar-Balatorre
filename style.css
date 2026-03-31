@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+  --primary-bg: #E7DBCB;
+  --deep-accent: #2D3323;
+  --gold: #b9935a;
+  --dark: #4e3300;
+  --subtle: #ddc88f;
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Pro Industry', Arial, sans-serif;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; padding: 0; 
+}
+
+
+/*================================
+        0. GLOBAL STYLES
+=================================*/
+
+body { 
+    font-family: var(--font-body); 
+    background: var(--deep-accent); 
+    color: var(--primary-bg); 
+    line-height: 1.5; 
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+
+/*=========================== 
+        1. NAVBAR 
+============================*/
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 16px 0;
+}
+
+nav .logo { 
+    font-family: var(--font-heading); 
+    font-size: 1.9rem; 
+    color: var(--gold); 
+}
+
+nav ul { 
+    list-style: none; 
+    display: flex; 
+    gap: 14px; 
+    flex-wrap: wrap; 
+}
+
+nav a { 
+    color: var(--primary-bg); 
+    font-weight: 700; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+    font-size: 0.85rem; 
+}
+
+nav a:hover, nav a.active { 
+    color: var(--gold); 
+}
+
+
+/*=========================== 
+        2. SECTIONS 
+============================*/
+
+
+section { padding: 60px 0; }
+
+                    /*=============== H E R O ===============*/
+
+.hero { 
+    display: flex;
+    align-items: center; /* Centers items vertically */
+    justify-content: center; /* Distributes space between items */
+    gap: 50px; /* Adds space between the text and image */
+    padding: 60px 10px;
+    max-width: 1200px;
+    min-height: 80vh;
+    margin: 0 auto;
+    border-radius: 12px;
+    background: linear-gradient(120deg, rgba(231,219,203,.9) 0%, rgba(45,51,35,.15) 100%);
+
+}
+
+.image-hero {
+    flex: 1; /* Allows the image to take up available space */
+    max-width: 500px; /* Limits the maximum width of the image */
+}
+
+.image-hero img {
+    max-width: 450px; /* Limits the maximum width of the image */
+    width: 100%; /* Makes the image responsive */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 15px; /* Adds rounded corners to the image */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* Adds a subtle shadow for depth */
+    display: block; /* Removes any default inline spacing */
+}
+
+.text-hero {
+    flex: 1; /* Allows the text to take up available space */
+    text-align: left;    
+    max-width: 500px; /* Limits the maximum width of the text */
+    /*Added flex to the container to manage vertical spacing easily */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns items to the left */
+     /* Adds spacing between the text elements */   
+}
+.cta { 
+    display: inline-block; /* Makes the button fit its content */ 
+    border: 0; 
+    padding: 14px 32px; 
+    margin-top: 30px;
+    border-radius: 999px; 
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    background: var(--gold);
+    color: var(--primary-bg);
+    box-shadow: 0 4px 10px rgba(45, 51, 35, 0.5);
+    transition: all 0.3s ease;
+}
+
+.cta:hover {
+    background: var(--subtle);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(45, 51, 35, 0.7);
+}
+
+                    /*=============== S E R V I C E S ===============*/
+
+.services-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+    gap: 18px; 
+}
+.service-card { 
+    background: #fff; 
+    border: 2px solid var(--gold); 
+    border-radius: 10px; 
+    padding: 18px; 
+}
+.service-card h2 { 
+    font-family: var(--font-heading); 
+    margin-bottom: 10px; 
+    color: var(--dark); 
+}
+
+
+                    /*=============== A B O U T ===============*/
+
+.about-grid { display: grid; gap: 24px; }
+.about-image { border: 2px dashed var(--dark); padding: 32px; border-radius: 10px; text-align: center; color: var(--dark); }
+
+
+                    /*=============== C O N T A C T ===============*/
+
+.contact-form { max-width: 700px; margin: 0 auto; display: grid; gap: 16px; }
+.contact-form label { font-weight: 700; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 10px 12px; border: 2px solid var(--gold); border-radius: 8px; font: inherit; }
+.contact-form textarea { min-height: 140px; resize: vertical; }
+
+button { cursor: pointer; }
+
+
+/*=========================== 
+        3. FOOTER 
+============================*/
+
+footer { background: var(--deep-accent); color: var(--primary-bg); padding: 26px 0; text-align: center; font-size: 0.95rem; }
+footer a { color: var(--gold); }
+
+
+/*======================================================= 
+        4. WHATSAPP BUTTON & MESSAGE BOX 
+========================================================*/
+
+.whatsapp-button { position: fixed; right: 18px; bottom: 18px; background: #25D366; color: #fff; padding: 14px 18px; border-radius: 50px; font-weight: bold; box-shadow: 0 8px 18px rgba(0,0,0,.25); text-decoration: none; }
+.whatsapp-button:hover { background: #128C7E; }
+
+@media (min-width: 768px) { .about-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+
+#message-box { display: none; border: 2px solid var(--gold); background: rgba(189, 156, 113, 0.12); color: var(--dark); padding: 12px; border-radius: 8px; margin-top: 10px; }
