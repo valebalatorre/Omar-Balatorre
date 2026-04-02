@@ -601,15 +601,31 @@ footer a:hover {
 
 /* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
+    footer {
+        padding: 30px 20px 20px 20px; /* More vertical breathing room for thumbs */
+    }
+
     .footer-grid {
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Center everything for a clean mobile look */
         text-align: center;
         gap: 30px;
     }
 
+    .footer-col {
+        width: 100%; /* Ensure columns take full width to center text correctly */
+    }
+
     .footer-item {
-        justify-content: center;
+        justify-content: center; /* Aligns the icon and text in the center */
+        margin-bottom: 12px; /* Easier to tap on mobile */
+    }
+
+    .footer-copyright {
+        margin-top: 30px;
+        padding-left: 0; /* REMOVE the 50px offset so it centers correctly */
+        text-align: center; /* Center the copyright for mobile balance */
+        font-size: 0.7rem;
     }
 }
 
@@ -623,25 +639,25 @@ footer a:hover {
     right: 20px; 
     bottom: 20px; 
     background: #25D366; 
-    color: #fff; 
-    width: 50px; /* Fixed width and height for a circle */
-    height: 50px; 
-    border-radius: 50%; /* Makes it a circle */
+    color: #ffffff; 
+    width: 55px; /* Slightly larger for better touch target */
+    height: 55px; 
+    border-radius: 50%; 
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 18px rgba(0,0,0,.25); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
     text-decoration: none; 
-    z-index: 999;
+    z-index: 1001; /* Stays above everything */
     transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .whatsapp-button svg {
-    stroke: #ffffff; /* Sets the icon color to white */
-    fill: #ffffff;   /* Fills the icon with white */
-    width: 33px; /* Adjusts the size of the icon */
-    height: 33px;
-    stroke-width: 0.5;
+    fill: #ffffff;
+    stroke: #ffffff;
+    width: 30px; 
+    height: 30px;
+    stroke-width: 0.5; /* Keeping it thin and elegant */
 }
 
 .whatsapp-button:hover { 
@@ -652,10 +668,10 @@ footer a:hover {
 /* Back to Top Button */
 .back-to-top {
     position: fixed;
-    right: 20px;
-    bottom: 90px; /* Positioned exactly above the 60px WhatsApp button + gap */
+    right: 25px; /* Slightly offset from the WhatsApp button edge */
+    bottom: 85px; /* Positioned directly above WhatsApp */
     background: var(--gold);
-    color: #fff;
+    color: #ffffff;
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -664,10 +680,16 @@ footer a:hover {
     justify-content: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     text-decoration: none;
-    z-index: 998;
-    opacity: 0; /* Hidden by default */
+    z-index: 1000;
+    opacity: 0; 
     visibility: hidden;
     transition: all 0.3s ease;
+}
+
+.back-to-top svg {
+    stroke: #ffffff;
+    width: 24px;
+    height: 24px;
 }
 
 .back-to-top.show {
@@ -676,6 +698,25 @@ footer a:hover {
 }
 
 .back-to-top:hover {
-    background: #a37f4d; /* Slightly darker gold */
+    background: #a37f4d; 
     transform: translateY(-5px);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .back-to-top {
+        right: 18px;
+        bottom: 75px; /* Maintains the stack on smaller screens */
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
