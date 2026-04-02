@@ -12,8 +12,9 @@
     <nav>
       <div class="logo">
         <a href="index.html">
-            <img src="img/logo.png" alt="Omar Balatorre Coaching Logo" />
-        </a></div>
+            <img src="img/logo-2.jpg" alt="Omar Balatorre Coaching Logo" />
+        </a>
+      </div>
       <ul>
         <li><a href="#home" class="active">Home</a></li>
         <li><a href="#servicios">Servicios</a></li>
@@ -70,24 +71,45 @@
       </div>
     </section>
 
-    <section id="sobre-mi">
-      <h2>Sobre Mi</h2>
-      <div class="about-grid">
-        <div class="about-image">[IMAGE: Professional Portrait]</div>
-        <div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-      </div>
-    </section>
+    <section id="about" class="container">
+      <div class="about-container">
+          <div class="about-image">
+              <img src="img/sobre-mi.jpeg" alt="Omar Balatorre">
+          </div>
 
-    <section id="contacto">
+          <div class="about-text">
+              <h2>Sobre Mi</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+      </div>
+  </section>
+
+    <section id="contacto" class="contacto">
       <h2>Contacto</h2>
       <form id="contact-form" class="contact-form">
-        <label for="name">Nombre</label><input id="name" name="name" type="text" required />
-        <label for="email">Email</label><input id="email" name="email" type="email" required />
-        <label for="asunto">Asunto</label><input id="asunto" name="asunto" type="text" placeholder="Asunto" required />
-        <label for="message">Mensaje</label><textarea id="message" name="message" required></textarea>
+        <label for="name">Nombre</label>
+        <input id="name" name="name" type="text" placeholder="Tu nombre" required />
+        
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="email@ejemplo.com" required />
+        
+        <label for="interes">¿En qué estás interesado?</label>
+        <select name="interes" id="interes" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="consultoria">Consultoría Ejecutiva</option>
+          <option value="coaching">Coaching Personal</option>
+          <option value="mentoria">Mentoría de Negocios</option>
+          <option value="ebooks">E-books</option>
+          <option value="otro">Otro</option>
+        </select>
+
+        <label for="asunto">Asunto</label>
+        <input id="asunto" name="asunto" type="text" placeholder="Asunto" required />
+        
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        
         <button class="cta" type="submit">Enviar</button>
         <div id="message-box"></div>
       </form>

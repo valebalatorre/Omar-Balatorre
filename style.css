@@ -34,17 +34,15 @@ body {
 ============================*/
 
 nav { 
+    width: 1100px;
+    margin: auto;
+    margin-bottom: 10px;
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    padding: 16px 0;
+    padding: 16px 0; 
 }
 
-nav .logo { 
-    font-family: var(--font-heading); 
-    font-size: 1.9rem; 
-    color: var(--gold); 
-}
 
 nav ul { 
     list-style: none; 
@@ -55,16 +53,76 @@ nav ul {
 
 nav a { 
     color: var(--primary-bg); 
-    font-weight: 700; 
+    font-weight: 775; 
     text-decoration: none; 
     text-transform: uppercase; 
-    font-size: 0.85rem; 
+    font-size: 1rem; 
 }
 
 nav a:hover, nav a.active { 
     color: var(--gold); 
 }
 
+                    /*=============== L O G O ===============*/
+
+nav .logo { 
+    display: flex;
+    align-items: center;
+}
+
+nav .logo a {
+    display: block;
+    align-items: 0; /* Adjusts vertical alignment of the image */
+}
+
+nav .logo img {
+    height: auto; /*Adjusts height to maintain aspect ratio */
+    width: 100%; /* Maintains aspect ratio */
+    max-width: 150px; /* Limits the maximum width of the logo */
+    display: block; /* Removes any default inline spacing */
+    border-radius: 8px; /* Optional: adds rounded corners to the logo */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Optional: adds a subtle shadow for depth */
+    transition: transform 0.3s ease; /* Optional: adds a smooth transition for interactions */
+    /*mix-blend-mode: multiply; /* This can help hide a white background on a dark nav */
+}
+
+nav .logo img:hover {
+    transform: scale(1.05); /* Optional: slightly enlarges the logo on hover for interactivity */
+}
+
+/* MOBILE RESPONSIVENESS (PHONES) */
+@media (max-width: 768px) {
+    nav {
+        /* Change fixed width to fluid */
+        width: 100%; 
+        max-width: 100%;
+        
+        /* Stack logo and menu vertically */
+        flex-direction: column; 
+        gap: 20px;
+        padding: 20px 15px;
+        margin-bottom: 0;
+    }
+
+    nav ul {
+        /* Center the menu items */
+        justify-content: center;
+        gap: 12px;
+        padding: 0;
+    }
+
+    nav a {
+        /* Slightly smaller text for tight mobile screens */
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+    }
+
+    nav .logo img {
+        /* Ensure the logo stays a reasonable size on phones */
+        max-width: 120px;
+        margin: 0 auto;
+    }
+}
 
 /*=========================== 
         2. SECTIONS 
@@ -319,26 +377,183 @@ section { padding: 60px 0; }
 
                     /*=============== A B O U T ===============*/
 
-.about-grid { display: grid; gap: 24px; }
-.about-image { border: 2px dashed var(--dark); padding: 32px; border-radius: 10px; text-align: center; color: var(--dark); }
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 5px 30px;
+    max-width: 1200px;
+    min-height: 80vh;
+    margin: 0 auto;
+    border-radius: 75px;
+    background: rgba(46, 43, 39, 0.9);
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centers the image inside its half */
+    max-width: 1200px; /* Limits the maximum width of the image container */
+}
+
+.about-image img { 
+    max-width: 475px; /* Limits the maximum width of the image */
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.about-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.about-text h2 { 
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.about-text p {
+     margin-bottom: 30px;
+    color: var(--primary-bg);
+    opacity: 0.9; /* Makes long text a bit softer to read */
+}
+
+
+
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Stack image and text */
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about .section-title {
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+}
+
 
 
                     /*=============== C O N T A C T ===============*/
 
-.contact-form { max-width: 700px; margin: 0 auto; display: grid; gap: 16px; }
-.contact-form label { font-weight: 700; }
-.contact-form input, .contact-form textarea { width: 100%; padding: 10px 12px; border: 2px solid var(--gold); border-radius: 8px; font: inherit; }
-.contact-form textarea { min-height: 140px; resize: vertical; }
 
-button { cursor: pointer; }
+.contacto h2 { 
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+    margin-top: 60px;
+    text-transform: uppercase;
+    text-align: center;
+}
 
+.contact-form { 
+    max-width: 700px; 
+    margin: 0 auto;
+    display: grid; 
+    gap: 16px; 
+}
+.contact-form label { 
+    font-weight: 700; 
+}
+
+.contact-form input, .contact-form textarea, .contact-form select { 
+    width: 100%; 
+    padding: 10px 12px; 
+    border: 2px solid var(--gold); 
+    border-radius: 8px; 
+    font: inherit; 
+    appearance: none;
+    background-color: rgb(245, 242, 239);
+     /* Adds a subtle background color to the form fields */
+}
+
+.contact-form select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b9935a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 15px;
+    cursor: pointer;
+}
+
+.contact-form select option {
+    color: var(--deep-accent);
+}
+
+.contact-form textarea { 
+    min-height: 140px; 
+    resize: vertical; 
+}
+
+button { 
+    cursor: pointer; 
+}
+
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+    .contacto h2 { 
+        font-size: 2.5rem; /* Slightly smaller for mobile screens */
+        margin-top: 40px;
+        padding: 0 15px;
+    }
+
+    .contact-form { 
+        padding: 0 20px; /* Prevents the form from sticking to the phone edges */
+        gap: 12px; /* Tightens the spacing for smaller vertical space */
+    }
+
+    .contact-form label { 
+        font-size: 0.9rem;
+    }
+
+    .contact-form input, 
+    .contact-form textarea, 
+    .contact-form select { 
+        font-size: 16px; /* CRITICAL: Prevents iOS from auto-zooming on tap */
+        padding: 14px;  /* Makes it easier to tap with fingers */
+    }
+
+    /* Making the "Enviar" button easier to hit on mobile */
+    .contact-form .cta {
+        width: 100%;
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+}
 
 /*=========================== 
         3. FOOTER 
 ============================*/
 
-footer { background: var(--deep-accent); color: var(--primary-bg); padding: 26px 0; text-align: center; font-size: 0.95rem; }
-footer a { color: var(--gold); }
+footer { 
+    background: rgba(46, 43, 39, 0.9); 
+    color: var(--primary-bg); 
+    padding: 26px 0; 
+    text-align: center; 
+    font-size: 0.95rem; 
+    border-top: 2px solid var(--gold);
+}
+
+footer a { 
+    color: var(--gold); 
+    text-decoration: none; 
+    font-weight: 700;
+}
 
 
 /*======================================================= 
