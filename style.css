@@ -533,6 +533,7 @@ button {
         width: 100%;
         margin-top: 10px;
         font-size: 1rem;
+        align-items: center;
     }
 }
 
@@ -541,28 +542,140 @@ button {
 ============================*/
 
 footer { 
-    background: rgba(46, 43, 39, 0.9); 
+    background: rgba(46, 43, 39, 1); /* Darker background to match screenshot */
     color: var(--primary-bg); 
-    padding: 26px 0; 
-    text-align: center; 
-    font-size: 0.95rem; 
+    padding: 20px 0 10px 0; /* Reduced padding to make it less tall */
+    font-size: 0.85rem; 
     border-top: 2px solid var(--gold);
 }
 
-footer a { 
-    color: var(--gold); 
-    text-decoration: none; 
-    font-weight: 700;
+.footer-grid {
+    display: flex;
+    justify-content: space-around; /* Distributes columns like the screenshot */
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
 }
 
+.footer-col h3 {
+    color: var(--primary-bg);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.footer-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.footer-icon {
+    stroke: var(--gold); /* Icon color matches your brand gold */
+    flex-shrink: 0;
+}
+
+footer a { 
+    color: var(--primary-bg); /* Text is white/primary-bg like the screenshot */
+    text-decoration: none; 
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--gold); /* Changes to gold only on hover */
+}
+
+.footer-copyright {
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-left: 50px;
+    border-top: 1px solid rgba(185, 147, 90, 0.2); /* Very subtle gold line */
+    text-align: left;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-item {
+        justify-content: center;
+    }
+}
 
 /*======================================================= 
         4. WHATSAPP BUTTON & MESSAGE BOX 
 ========================================================*/
 
-.whatsapp-button { position: fixed; right: 18px; bottom: 18px; background: #25D366; color: #fff; padding: 14px 18px; border-radius: 50px; font-weight: bold; box-shadow: 0 8px 18px rgba(0,0,0,.25); text-decoration: none; }
-.whatsapp-button:hover { background: #128C7E; }
+/* WhatsApp Circular Button */
+.whatsapp-button { 
+    position: fixed; 
+    right: 20px; 
+    bottom: 20px; 
+    background: #25D366; 
+    color: #fff; 
+    width: 50px; /* Fixed width and height for a circle */
+    height: 50px; 
+    border-radius: 50%; /* Makes it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 18px rgba(0,0,0,.25); 
+    text-decoration: none; 
+    z-index: 999;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
 
-@media (min-width: 768px) { .about-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+.whatsapp-button svg {
+    stroke: #ffffff; /* Sets the icon color to white */
+    fill: #ffffff;   /* Fills the icon with white */
+    width: 33px; /* Adjusts the size of the icon */
+    height: 33px;
+    stroke-width: 0.5;
+}
 
-#message-box { display: none; border: 2px solid var(--gold); background: rgba(189, 156, 113, 0.12); color: var(--dark); padding: 12px; border-radius: 8px; margin-top: 10px; }
+.whatsapp-button:hover { 
+    background: #128C7E; 
+    transform: scale(1.1);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 90px; /* Positioned exactly above the 60px WhatsApp button + gap */
+    background: var(--gold);
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-decoration: none;
+    z-index: 998;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: #a37f4d; /* Slightly darker gold */
+    transform: translateY(-5px);
+}
