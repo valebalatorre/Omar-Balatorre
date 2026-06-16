@@ -504,6 +504,101 @@ button {
 }
 
 
+.checkbox-group {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 5px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500 !important;
+    position: relative;
+    padding-left: 30px;
+}
+
+.checkbox-item input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* El cuadro del checkbox personalizado */
+.custom-check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(245, 242, 239);
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.checkbox-item:hover input ~ .custom-check {
+    background-color: #e8e4e0;
+}
+
+.checkbox-item input:checked ~ .custom-check {
+    background-color: var(--gold);
+}
+
+/* El check interno (blanco) */
+.custom-check:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-item input:checked ~ .custom-check:after {
+    display: block;
+}
+
+/* Manejo del campo oculto */
+.hidden-field {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+/* Contenedor del input de teléfono y prefijo */
+.phone-input-container {
+    display: flex;
+    gap: 10px;
+}
+
+.country-select {
+    width: 140px !important; /* Ancho fijo para el prefijo */
+    flex-shrink: 0;
+}
+
+/* Estilo para los iconos de banderas (si el navegador lo soporta) */
+.country-select option {
+    font-size: 16px;
+}
+
+/* Asegurar que el campo oculto tenga espacio */
+.hidden-field {
+    display: none; /* Se activa con JS */
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
     .contacto h2 { 
@@ -535,7 +630,43 @@ button {
         font-size: 1rem;
         align-items: center;
     }
+
+    .phone-input-container {
+        flex-direction: row; /* Keeps them side by side */
+        flex-wrap: nowrap;
+    }
+
+    .country-select {
+        width: 110px !important; /* Slightly smaller on mobile to save space */
+    }
 }
+
+
+/* Container for prefix + number */
+.phone-input-container {
+    display: flex;
+    gap: 10px; /* Space between the dropdown and the input */
+}
+
+/* Specific style for the country dropdown */
+.country-select {
+    width: 140px !important; 
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* Visibility logic */
+.hidden-field {
+    display: none; /* JS will change this to 'block' */
+    margin-bottom: 10px;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 
 /*=========================== 
         3. FOOTER 
